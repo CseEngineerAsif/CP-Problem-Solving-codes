@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const long long MOD = 1e9+7;
+
+long long solve(int amount, vector<long long>&coins, vector<long long>&dp){
+    if(amount == 0){
+        return 1;
+    }
+    if (amount<0) return 0;
+    
+    if(dp[amount] != -1){
+        return dp[amount];
+    }
+    long long ways = 0;
+    for (int coin : coins)
+    ways = (ways + solve(amount - coin,coins,  dp))%MOD;
+    
+    return dp[amount] = ways;
+}
+
+
+int main(){
+    int n, amount;
+    cin>>n>>amount;
+    vector<long long>coins(n), dp(amount+1, -1);
+    for(int i  = 0; i<n; i++){
+        cin>>coins[i];
+    }
+    cout<<solve(amount, coins, dp);
+
+}
