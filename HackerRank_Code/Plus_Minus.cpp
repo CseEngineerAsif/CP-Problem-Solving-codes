@@ -3,26 +3,25 @@
 using namespace std;
 
 void plusMinus(vector<int> arr) {
+
+    int n = arr.size();
     int positive = 0;
     int negative = 0;
     int zero = 0;
 
-    for(int x : arr) {
-        if(x > 0)
+    for(int i=0;i<n;i++) {
+        if(arr[i] > 0)
             positive++;
-        else if(x < 0)
+        else if(arr[i] < 0)
             negative++;
         else
             zero++;
     }
 
-    int n = arr.size();
 
-    cout << fixed << setprecision(6);
-
-    cout << (double)positive / n << endl;
-    cout << (double)negative / n << endl;
-    cout << (double)zero / n << endl;
+    cout << "Positive Ratio"<<(double)positive / n << endl;
+    cout <<"Negative Ratio"<<(double)negative / n << endl;
+    cout << "Zero"<<(double)zero / n << endl;
 }
 
 int main() {
