@@ -12,7 +12,7 @@ string longestCommonPrefix(vector<string> strs)
 
         while (j < ans.length() &&
                j < strs[i].length() &&
-               ans[j] == strs[i][j])
+               ans[j] == strs[i][j]) // i indecate string serial, j indecate string charcter position
         {
             j++;
         }
